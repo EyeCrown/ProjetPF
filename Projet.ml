@@ -12,13 +12,21 @@
       Définir les types OCaml, pour les types et les expressions du langage mini-ML.
 
  ------------------------------------------------------------------------------------------------------- *)
+type myType =
+  |   T
+  |   Tfun of (myType -> myType)
+  |   TPair of (myType * myType)
+;;
 
-type 
+type myExpr =
+  | X of string
+  | C
+  | ExprFun of (myType -> myExpr)
+  | ExprAbs of (myExpr , myExpr)
+  | ExprVar of myType
+;;
 
-
-
-
-
+;;
 (* ----- Question 2 ------ Auteur : Theophile CARRASCO ---------------------------------------------------
 
       Définir une fonction "d’affichage" des expressions mini-ML qui prend une expression et retourne
@@ -34,7 +42,7 @@ type
 
 
 
-
+;;
 (* ----- Question 3 ------ Auteur : Theophile CARRASCO ---------------------------------------------------
 
       Nous allons utiliser les listes d’associations OCaml pour représenter les environnements. 
@@ -49,7 +57,7 @@ type
 
 
 
-
+;;
 (* ----- Question 4 ------ Auteur : Theophile CARRASCO ---------------------------------------------------
 
       Définir une fonction de vérification de type, qui prend en argument un environnement et une
@@ -64,7 +72,7 @@ type
 
 
 
-
+;;
 (* ----- Question 5 ------ Auteur : Theophile CARRASCO ---------------------------------------------------
 
       Utiliser la fonction de vérification de type de la question 4 pour calculer le type des 
@@ -82,3 +90,4 @@ type
 
 
 
+;;
