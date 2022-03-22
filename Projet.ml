@@ -22,7 +22,7 @@ type myExpr =
   | X of string
   | C
   | ExprFun of (myType -> myExpr)
-  | ExprAbs of (myExpr , myExpr)
+  | ExprAbs of (myExpr, myExpr)
   | ExprVar of myType
 ;;
 
